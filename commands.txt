@@ -1,0 +1,4 @@
+bison -dy filename.y
+lex filename.lex
+gcc lex.yy.v y.tab.c
+./a.out
