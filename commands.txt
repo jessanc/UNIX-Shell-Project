@@ -1,4 +1,22 @@
 bison -dy filename.y
 lex filename.lex
-gcc lex.yy.v y.tab.c
-./a.out
+gcc lex.yy.c y.tab.c
+./a.out 
+
+
+// windows
+
+For Compiling Lex file only:
+
+	flex hello.l
+	gcc lex.yy.c
+
+For Compiling Lex & Yacc file both:
+
+	flex hello.l
+	bison -dy hello.y
+	gcc lex.yy.c y.tab.c
+
+For Executing the Program
+
+	a.exe
