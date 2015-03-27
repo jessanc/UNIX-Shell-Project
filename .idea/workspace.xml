@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="753e57ec-f23f-4b9a-824f-a87832690a44" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hello.l" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unix.l" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/unix.y" />
-      <change type="DELETED" beforePath="C:\Users\match_000\Desktop\UNIX-Shell-Project\hello.lex" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/a.exe" afterPath="$PROJECT_DIR$/a.exe" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/commands.txt" afterPath="$PROJECT_DIR$/commands.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hello.y" afterPath="$PROJECT_DIR$/hello.y" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lex.yy.c" afterPath="$PROJECT_DIR$/lex.yy.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/y.tab.c" afterPath="$PROJECT_DIR$/y.tab.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/y.tab.h" afterPath="$PROJECT_DIR$/y.tab.h" />
     </list>
     <ignored path="UNIX-Shell-Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,11 +40,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unix.l" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lex.yy.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lex.yy.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.3611112" vertical-offset="0" max-vertical-offset="26639">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unix.l" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/unix.l">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6611111" vertical-offset="0" max-vertical-offset="360">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
               <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="y.tab.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/y.tab.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="27608">
+              <caret line="117" column="6" selection-start-line="117" selection-start-column="6" selection-end-line="117" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -214,7 +222,7 @@
     <frame x="-8" y="-8" width="1296" height="701" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32984293" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32869565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -256,14 +264,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lex.yy.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1368716" vertical-offset="765" max-vertical-offset="26061">
-          <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -299,6 +299,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/unix.l">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/y.tab.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1734" max-vertical-offset="27608">
+          <caret line="117" column="6" selection-start-line="117" selection-start-column="6" selection-end-line="117" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/commands.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9642856" vertical-offset="144" max-vertical-offset="476">
@@ -310,10 +326,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/unix.l">
+    <entry file="file://$PROJECT_DIR$/lex.yy.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6611111" vertical-offset="0" max-vertical-offset="360">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        <state vertical-scroll-proportion="2.3611112" vertical-offset="0" max-vertical-offset="26639">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
