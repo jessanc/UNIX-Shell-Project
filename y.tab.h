@@ -52,7 +52,9 @@ extern int yydebug;
      CD = 261,
      ALIAS = 262,
      UNALIAS = 263,
-     BYE = 264
+     BYE = 264,
+     NUMBER = 265,
+     WORD = 266
    };
 #endif
 /* Tokens.  */
@@ -63,11 +65,24 @@ extern int yydebug;
 #define ALIAS 262
 #define UNALIAS 263
 #define BYE 264
+#define NUMBER 265
+#define WORD 266
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef union YYSTYPE
+{
+/* Line 2058 of yacc.c  */
+#line 21 "unix.y"
+
+        int number;
+        char* string;
+
+
+/* Line 2058 of yacc.c  */
+#line 85 "y.tab.h"
+} YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

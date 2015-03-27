@@ -12,5 +12,9 @@ unalias     return UNALIAS;
 bye         return BYE;
 \n          /*ignore end of line */;
 [ \t]+      /*ignore whitespace */;
-.           /*ignore unrecognized character */;
+[0-9]+      {yylval.number = atoi(yytext); return NUMBER;}
+[a-zA-Z0-9\-\*\.\/]+    { yylval.string = strdup(yytext); return WORD; }
+
+
+
 %%
