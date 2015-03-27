@@ -1,5 +1,5 @@
 bison -dy filename.y
-lex filename.lex
+lex filename.l
 gcc lex.yy.c y.tab.c
 ./a.out 
 
@@ -13,8 +13,8 @@ For Compiling Lex file only:
 
 For Compiling Lex & Yacc file both:
 
-	flex hello.l
-	bison -dy hello.y
+	flex hello.l // lex hello.l
+	bison -dy hello.y // yacc -dy hello.y
 	gcc lex.yy.c y.tab.c
 
 For Executing the Program
