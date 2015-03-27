@@ -11,5 +11,6 @@ alias       return ALIAS;
 unalias     return UNALIAS;
 bye         return BYE;
 \n          /*ignore end of line */;
-.           ; /* unrecognized character */
+[ \t]+      /*ignore whitespace */;
+.           /*ignore unrecognized character */;
 %%

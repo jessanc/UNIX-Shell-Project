@@ -1380,7 +1380,7 @@ yyreduce:
   case 17:
 /* Line 1792 of yacc.c  */
 #line 35 "unix.y"
-    {printf("\t bye!!\n"); exit(0);}
+    {printf("\t bye!! \n"); exit(0);}
     break;
 
 
