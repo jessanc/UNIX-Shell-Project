@@ -54,7 +54,16 @@ extern int yydebug;
      UNALIAS = 263,
      BYE = 264,
      NUMBER = 265,
-     WORD = 266
+     WORD = 266,
+     SEMICOLON = 267,
+     OPEN_PAREN = 268,
+     CLOSE_PAREN = 269,
+     OPEN_CARAT = 270,
+     CLOSE_CARAT = 271,
+     PIPE = 272,
+     QUOTE = 273,
+     BACKSLASH = 274,
+     AMPERSAND = 275
    };
 #endif
 /* Tokens.  */
@@ -67,6 +76,15 @@ extern int yydebug;
 #define BYE 264
 #define NUMBER 265
 #define WORD 266
+#define SEMICOLON 267
+#define OPEN_PAREN 268
+#define CLOSE_PAREN 269
+#define OPEN_CARAT 270
+#define CLOSE_CARAT 271
+#define PIPE 272
+#define QUOTE 273
+#define BACKSLASH 274
+#define AMPERSAND 275
 
 
 
@@ -74,14 +92,14 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2058 of yacc.c  */
-#line 21 "unix.y"
+#line 22 "unix.y"
 
         int number;
         char* string;
 
 
 /* Line 2058 of yacc.c  */
-#line 85 "y.tab.h"
+#line 103 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

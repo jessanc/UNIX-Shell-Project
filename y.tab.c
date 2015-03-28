@@ -100,7 +100,10 @@ main(){
 # define YYERROR_VERBOSE 0
 #endif
 
-
+/* In a future release of Bison, this section will be replaced
+   by #include "y.tab.h".  */
+#ifndef YY_YY_Y_TAB_H_INCLUDED
+# define YY_YY_Y_TAB_H_INCLUDED
 /* Enabling traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -135,6 +138,26 @@ extern int yydebug;
      AMPERSAND = 275
    };
 #endif
+/* Tokens.  */
+#define SETENV 258
+#define PRINTENV 259
+#define UNSETENV 260
+#define CD 261
+#define ALIAS 262
+#define UNALIAS 263
+#define BYE 264
+#define NUMBER 265
+#define WORD 266
+#define SEMICOLON 267
+#define OPEN_PAREN 268
+#define CLOSE_PAREN 269
+#define OPEN_CARAT 270
+#define CLOSE_CARAT 271
+#define PIPE 272
+#define QUOTE 273
+#define BACKSLASH 274
+#define AMPERSAND 275
+
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -148,7 +171,7 @@ typedef union YYSTYPE
 
 
 /* Line 387 of yacc.c  */
-#line 152 "y.tab.c"
+#line 175 "y.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -171,12 +194,12 @@ int yyparse ();
 #endif
 #endif /* ! YYPARSE_PARAM */
 
-
+#endif /* !YY_YY_Y_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
 /* Line 390 of yacc.c  */
-#line 180 "y.tab.c"
+#line 203 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -1441,7 +1464,7 @@ yyreduce:
 
 
 /* Line 1792 of yacc.c  */
-#line 1445 "y.tab.c"
+#line 1468 "y.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
