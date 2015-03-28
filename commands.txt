@@ -20,3 +20,5 @@ For Compiling Lex & Yacc file both:
 For Executing the Program
 
 	a.exe
+
+	a.exe < input.txt // to read from a file

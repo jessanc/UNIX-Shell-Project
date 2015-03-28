@@ -1,0 +1,5 @@
+cd
+12
+setenv
+printenv
+bye
