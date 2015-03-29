@@ -32,7 +32,7 @@ int getCommand()
 {
 	init_scanner-and_parser();
 	if (yyparse())
-		understand_errors();
+		//understand_errors();
 	else
 		Return (OK);
 }
