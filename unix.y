@@ -15,7 +15,7 @@ main(){
 }
 
 %}
-%token SETENV PRINTENV UNSETENV CD ALIAS UNALIAS BYE
+%token SETENV PRINTENV UNSETENV CD LS ALIAS UNALIAS BYE
 %token NUMBER WORD SEMICOLON OPEN_PAREN CLOSE_PAREN OPEN_CARAT CLOSE_CARAT PIPE QUOTE BACKSLASH AMPERSAND
 
 %union
@@ -31,7 +31,7 @@ commands: /* empty */
      | commands command{printf("%s","$ ");};
 
 command:
-    setenv_case|printenv_case|unsetenv_case|cd_case|alias_case|unalias_case|bye_case|number_case|word_case;
+    setenv_case|printenv_case|unsetenv_case|cd_case|ls_case|alias_case|unalias_case|bye_case|number_case|word_case;
 
 setenv_case:
     SETENV {printf("\t setenv !!\n");};
@@ -44,6 +44,12 @@ unsetenv_case:
 
 cd_case:
     CD {printf("\t cd !!\n");};
+
+ls_case:
+    LS{
+    		char* path = "";
+    		ls(path);
+    	};
 
 alias_case:
     ALIAS {printf("\t alias !!\n");};
