@@ -31,9 +31,8 @@ void shell_init(){
 int getCommand()
 {
 	init_scanner-and_parser();
-	if (yyparse()){
-	return 00;
-	}
+	if (yyparse())
+	return 1;
 		//understand_errors();
 	else
 		Return (OK);
