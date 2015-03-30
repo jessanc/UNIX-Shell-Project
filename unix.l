@@ -7,17 +7,23 @@ setenv      return SETENV;
 printenv    return PRINTENV;
 unsetenv    return UNSETENV;
 cd          return CD;
-ls          return LS;
 alias       return ALIAS;
 unalias     return UNALIAS;
 bye         return BYE;
-\n          /*ignore end of line */;
+
+ls          return LS;
+\n          return EOLN;
 [ \t]+      /*ignore whitespace */;
 [0-9]+      {yylval.number = atoi(yytext); return NUMBER;}
-[a-zA-Z0-9\-\*\.\/]+    { yylval.string = strdup(yytext); return WORD; } // filename
-";"      printf("Semicolon\n");
-"("      printf("Open parentheses\n");
-")"      printf("Close parentheses\n");
+[a-zA-Z0-9\-()\*\.\/..~?${}]+    { yylval.string = strdup(yytext); return WORD; } // filename
+
+[<]			return LESSTHAN;
+[>]			return GREATERTHAN;
+[|]			return PIPE;
+[\"]	    return DOUBLEQUOTE;
+[\\]		return BACKSLASH;
+[&]			return AMPERSAND;
+
 .           { yyerror("unrecongnized character"); return 0;}
 
 %%

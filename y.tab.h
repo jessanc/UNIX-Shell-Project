@@ -51,20 +51,24 @@ extern int yydebug;
      UNSETENV = 260,
      CD = 261,
      LS = 262,
-     ALIAS = 263,
-     UNALIAS = 264,
-     BYE = 265,
-     NUMBER = 266,
-     WORD = 267,
-     SEMICOLON = 268,
-     OPEN_PAREN = 269,
-     CLOSE_PAREN = 270,
-     OPEN_CARAT = 271,
-     CLOSE_CARAT = 272,
-     PIPE = 273,
-     QUOTE = 274,
-     BACKSLASH = 275,
-     AMPERSAND = 276
+     EOLN = 263,
+     ALIAS = 264,
+     UNALIAS = 265,
+     BYE = 266,
+     NUMBER = 267,
+     WORD = 268,
+     SEMICOLON = 269,
+     OPEN_PAREN = 270,
+     CLOSE_PAREN = 271,
+     OPEN_CARAT = 272,
+     CLOSE_CARAT = 273,
+     PIPE = 274,
+     QUOTE = 275,
+     BACKSLASH = 276,
+     AMPERSAND = 277,
+     LESSTHAN = 278,
+     GREATERTHAN = 279,
+     DOUBLEQUOTE = 280
    };
 #endif
 /* Tokens.  */
@@ -73,20 +77,24 @@ extern int yydebug;
 #define UNSETENV 260
 #define CD 261
 #define LS 262
-#define ALIAS 263
-#define UNALIAS 264
-#define BYE 265
-#define NUMBER 266
-#define WORD 267
-#define SEMICOLON 268
-#define OPEN_PAREN 269
-#define CLOSE_PAREN 270
-#define OPEN_CARAT 271
-#define CLOSE_CARAT 272
-#define PIPE 273
-#define QUOTE 274
-#define BACKSLASH 275
-#define AMPERSAND 276
+#define EOLN 263
+#define ALIAS 264
+#define UNALIAS 265
+#define BYE 266
+#define NUMBER 267
+#define WORD 268
+#define SEMICOLON 269
+#define OPEN_PAREN 270
+#define CLOSE_PAREN 271
+#define OPEN_CARAT 272
+#define CLOSE_CARAT 273
+#define PIPE 274
+#define QUOTE 275
+#define BACKSLASH 276
+#define AMPERSAND 277
+#define LESSTHAN 278
+#define GREATERTHAN 279
+#define DOUBLEQUOTE 280
 
 
 
@@ -94,14 +102,14 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2058 of yacc.c  */
-#line 22 "unix.y"
+#line 25 "unix.y"
 
         int number;
         char* string;
 
 
 /* Line 2058 of yacc.c  */
-#line 105 "y.tab.h"
+#line 113 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
