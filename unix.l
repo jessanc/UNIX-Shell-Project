@@ -24,6 +24,6 @@ ls          return LS;
 [\\]		return BACKSLASH;
 [&]			return AMPERSAND;
 
-.           { yyerror("unrecongnized character"); return 0;}
+.           { yyerror("unrecongnized character");}
 
 %%

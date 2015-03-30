@@ -727,7 +727,7 @@ return AMPERSAND;
 case 19:
 YY_RULE_SETUP
 #line 27 "unix.l"
-{ yyerror("unrecongnized character"); return 0;}
+{ yyerror("unrecongnized character");}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP

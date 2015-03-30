@@ -70,9 +70,9 @@ ls_case:
     		DIR *dir;
     		dir = opendir(".");
     		struct dirent *dp;
-    		int k;
     		const char* input = $2;
     		int len = strlen($2);
+    		int k;
     		char* output;
     		if(dir) {
     			while ((dp = readdir(dir)) != NULL) {

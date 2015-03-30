@@ -33,7 +33,7 @@ int getCommand()
 	init_scanner-and_parser();
 	if (yyparse())
 	return 1;
-		//understand_errors();
+		understand_errors();
 	else
 		Return (OK);
 }
@@ -48,14 +48,14 @@ void recover_from_errors()
 void processCommand()
 {
 	if (builtin)
-		do_it();
+		do_it(builtin);
 	else
 		execute_it();
 }
-void Do_it(string builtin)
+void do_it(string builtin)
 {
 	switch (builtin) {
-	case CDHome: //gohome();
+	case CDHome:    //gohome();
 	case CDPath:	//chdir(path);
 	case ALIAS:
 	case UNALIAS:
