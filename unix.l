@@ -15,7 +15,7 @@ ls          return LS;
 \n          return EOLN;
 [ \t]+      /*ignore whitespace */;
 [0-9]+      {yylval.number = atoi(yytext); return NUMBER;}
-[a-zA-Z0-9\-()\*\.\/..~?${}]+    { yylval.string = strdup(yytext); return WORD; } // filename
+[a-zA-Z0-9\-()\*\.\/..~?${}_]+    { yylval.string = strdup(yytext); return WORD; } // filename
 
 [<]			return LESSTHAN;
 [>]			return GREATERTHAN;

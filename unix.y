@@ -46,7 +46,18 @@ unsetenv_case:
     UNSETENV {printf("\t unsetenv !!\n");};
 
 cd_case:
-    CD {printf("\t cd !!\n");};
+    CD WORD{
+        char* s = $2;
+        if(chdir(s) == -1){
+            printf("%s: ", s);
+            printf("not a directory");
+            return;
+        }
+        else{
+            printf("\tDirectory changed to %s\n", s);
+
+        }
+    };
 
 EOLN_case:
     EOLN {}; // just ignore
