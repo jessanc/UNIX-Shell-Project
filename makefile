@@ -1,4 +1,4 @@
-linux :
+linux:
 	bison -dy unix.y 
 	flex unix.l
 	gcc lex.yy.c y.tab.c
@@ -7,7 +7,7 @@ windows:
 	yacc -dy unix.y 
 	lex unix.l
 	gcc lex.yy.c y.tab.c
-	a.exe
+	./a.exe
 	
 clean:
 	rm mainc.o
