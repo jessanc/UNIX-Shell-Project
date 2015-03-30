@@ -1,0 +1,8 @@
+all :
+	bison -dy unix.y 
+	flex unix.l
+	gcc lex.yy.c y.tab.c
+	./a.out
+
+clean:
+	rm mainc.o
