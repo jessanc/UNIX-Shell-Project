@@ -46,7 +46,12 @@ unsetenv_case:
     UNSETENV {printf("\t unsetenv !!\n");};
 
 cd_case:
-    CD WORD{
+    CD EOLN{
+        printf("Directory changed to home\n");
+        chdir(getenv("HOME"));
+    }
+
+    |CD WORD{
         char* s = $2;
         if(chdir(s) == -1){
             printf("%s: ", s);
@@ -57,7 +62,8 @@ cd_case:
             printf("\tDirectory changed to %s\n", s);
 
         }
-    };
+    }
+    ;
 
 EOLN_case:
     EOLN {}; // just ignore
@@ -76,7 +82,7 @@ ls_case:
     		}
     		else
     		    printf("not valid !");
-    };
+    }
     | LS WORD {
     		DIR *dir;
     		dir = opendir(".");
@@ -104,7 +110,8 @@ ls_case:
     		}
     		else
                 		    printf("not valid !");
-    	};
+    	}
+    	;
 
 alias_case:
     ALIAS {printf("\t alias !!\n");};
