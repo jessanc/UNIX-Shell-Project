@@ -2,14 +2,23 @@
 #include <string.h>
 #include <stdlib.h>
 #include "y.tab.h"
-//#include "system_calls/chdir.c"
-void shell_init();
-int main(){
-    printf("Welcome to SHell!\n");
+#include "shell.h"
 
-   shell_init();
+void shell_init();
+
+void prompt(){
+	printf("%s\n$ " , getenv("PWD"));
+	//printf("\n%s","$ ");
+	return;
+}
+
+int main(){
+    printf("\tWelcome to UNIX SHELL\n\n$ ");
+
+        shell_init();
     	While (1) {
     		printPrompt();
+    		String CMD;
     		Switch (CMD = getCommand()) {
     		Case: BYE		exit();
     		Case: ERRORS 	recover_from_errors();
@@ -52,15 +61,15 @@ void processCommand()
 	else
 		execute_it();
 }
-void do_it(string builtin)
+void do_it()
 {
-	switch (builtin) {
-	case CDHome:    //gohome();
-	case CDPath:	//chdir(path);
-	case ALIAS:
-	case UNALIAS:
-	case SETENV:
-	case PRINTENV:
+	switch (command) {
+        case :    //gohome();
+        case CD Path:	//chdir(path);
+        case ALIAS:
+        case UNALIAS:
+        case SETENV:
+        case PRINTENV:
     //....
 	}
 }

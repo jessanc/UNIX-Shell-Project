@@ -7,6 +7,7 @@
 #include <string.h>
 #include <limits.h>
 #include <sys/file.h>
+#include "shell.h"
 
 void yyerror(const char *str){
     fprintf(stderr, "error: %s\n",str);
@@ -17,9 +18,10 @@ int yywrap(){
 }
 
 %}
-%token SETENV PRINTENV UNSETENV CD LS EOLN ALIAS UNALIAS BYE
+%token SETENV PRINTENV UNSETENV CD LS EOLN ALIAS UNALIAS BYE FLAG
 %token NUMBER WORD SEMICOLON OPEN_PAREN CLOSE_PAREN OPEN_CARAT CLOSE_CARAT PIPE QUOTE BACKSLASH AMPERSAND
 %token BACKSLASH LESSTHAN GREATERTHAN PIPE DOUBLEQUOTE AMPERSAND
+%token HOME_AND_PATH HOME ROOT DOT_DOT
 
 %union
 {
@@ -31,7 +33,7 @@ int yywrap(){
 %%
 
 commands: /* empty */
-     | commands command{printf("%s","$ ");};
+     | commands command{printf("\n%s","$ ");};
 
 command:
     setenv_case|printenv_case|unsetenv_case|cd_case|ls_case|EOLN_case|alias_case|unalias_case|bye_case|number_case|word_case|metach_case;
@@ -46,22 +48,65 @@ unsetenv_case:
     UNSETENV {printf("\t unsetenv !!\n");};
 
 cd_case:
-    CD EOLN{
-        printf("Directory changed to home\n");
+
+    |CD EOLN{
+        builtin = 1;
+        printf("\tDirectory changed to Home\n");
         chdir(getenv("HOME"));
     }
 
-    |CD WORD{
-        char* s = $2;
+    |CD HOME EOLN{
+        builtin = 1;
+        printf("\tDirectory changed to Home\n");
+        chdir(getenv("HOME"));
+    }
+
+     |CD ROOT EOLN{
+            builtin = 1;
+            printf("\tDirectory changed to root\n");
+            chdir("/");
+    }
+
+    |CD HOME_AND_PATH WORD EOLN{
+        builtin = 1;
+        char* s = $3;
         if(chdir(s) == -1){
-            printf("%s: ", s);
-            printf("not a directory");
-            return;
+                    printf("%s: ", s);
+                    printf("\tnot a directory");
         }
         else{
             printf("\tDirectory changed to %s\n", s);
-
+            chdir(getenv("HOME"));
+            chdir(s);
         }
+
+    }
+
+    |CD HOME WORD EOLN{
+                builtin = 1;
+                char* s = $3;
+                if(chdir(s) == -1){
+                            printf("%s: ", s);
+                            printf("\tnot a directory");
+                }
+                else{
+                    printf("\tDirectory changed to home and then to %s\n", s);
+                    chdir(getenv("HOME"));
+                    chdir(s);
+                 }
+     }
+
+    |CD WORD EOLN{
+        builtin = 1;
+        char* s = $2;
+        if(chdir(s) == -1){
+            printf("%s: ", s);
+            printf("\tnot a directory");
+        }
+        else{
+                printf("\tDirectory changed to %s\n", s);
+                free($2);
+            }
     }
     ;
 
@@ -71,6 +116,7 @@ EOLN_case:
 
 ls_case:
     LS EOLN{
+            builtin = 0;
             DIR *dir;
     		dir = opendir(".");
     		struct dirent *dp;
@@ -83,7 +129,8 @@ ls_case:
     		else
     		    printf("not valid !");
     }
-    | LS WORD {
+    | LS WORD EOLN{
+            builtin = 0;
     		DIR *dir;
     		dir = opendir(".");
     		struct dirent *dp;

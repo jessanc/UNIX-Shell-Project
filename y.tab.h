@@ -55,20 +55,25 @@ extern int yydebug;
      ALIAS = 264,
      UNALIAS = 265,
      BYE = 266,
-     NUMBER = 267,
-     WORD = 268,
-     SEMICOLON = 269,
-     OPEN_PAREN = 270,
-     CLOSE_PAREN = 271,
-     OPEN_CARAT = 272,
-     CLOSE_CARAT = 273,
-     PIPE = 274,
-     QUOTE = 275,
-     BACKSLASH = 276,
-     AMPERSAND = 277,
-     LESSTHAN = 278,
-     GREATERTHAN = 279,
-     DOUBLEQUOTE = 280
+     FLAG = 267,
+     NUMBER = 268,
+     WORD = 269,
+     SEMICOLON = 270,
+     OPEN_PAREN = 271,
+     CLOSE_PAREN = 272,
+     OPEN_CARAT = 273,
+     CLOSE_CARAT = 274,
+     PIPE = 275,
+     QUOTE = 276,
+     BACKSLASH = 277,
+     AMPERSAND = 278,
+     LESSTHAN = 279,
+     GREATERTHAN = 280,
+     DOUBLEQUOTE = 281,
+     HOME_AND_PATH = 282,
+     HOME = 283,
+     ROOT = 284,
+     DOT_DOT = 285
    };
 #endif
 /* Tokens.  */
@@ -81,20 +86,25 @@ extern int yydebug;
 #define ALIAS 264
 #define UNALIAS 265
 #define BYE 266
-#define NUMBER 267
-#define WORD 268
-#define SEMICOLON 269
-#define OPEN_PAREN 270
-#define CLOSE_PAREN 271
-#define OPEN_CARAT 272
-#define CLOSE_CARAT 273
-#define PIPE 274
-#define QUOTE 275
-#define BACKSLASH 276
-#define AMPERSAND 277
-#define LESSTHAN 278
-#define GREATERTHAN 279
-#define DOUBLEQUOTE 280
+#define FLAG 267
+#define NUMBER 268
+#define WORD 269
+#define SEMICOLON 270
+#define OPEN_PAREN 271
+#define CLOSE_PAREN 272
+#define OPEN_CARAT 273
+#define CLOSE_CARAT 274
+#define PIPE 275
+#define QUOTE 276
+#define BACKSLASH 277
+#define AMPERSAND 278
+#define LESSTHAN 279
+#define GREATERTHAN 280
+#define DOUBLEQUOTE 281
+#define HOME_AND_PATH 282
+#define HOME 283
+#define ROOT 284
+#define DOT_DOT 285
 
 
 
@@ -102,14 +112,14 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2058 of yacc.c  */
-#line 25 "unix.y"
+#line 27 "unix.y"
 
         int number;
         char* string;
 
 
 /* Line 2058 of yacc.c  */
-#line 113 "y.tab.h"
+#line 123 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
