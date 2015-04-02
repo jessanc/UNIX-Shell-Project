@@ -72,7 +72,7 @@ cd_case:
         char* s = $3;
         if(chdir(s) == -1){
                     printf("%s: ", s);
-                    printf("\tnot a directory");
+                    printf(" not a directory");
         }
         else{
             printf("\tDirectory changed to %s\n", s);
@@ -87,7 +87,7 @@ cd_case:
                 char* s = $3;
                 if(chdir(s) == -1){
                             printf("%s: ", s);
-                            printf("\tnot a directory");
+                            printf(" not a directory");
                 }
                 else{
                     printf("\tDirectory changed to home and then to %s\n", s);
