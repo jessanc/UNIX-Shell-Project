@@ -56,24 +56,26 @@ extern int yydebug;
      UNALIAS = 265,
      BYE = 266,
      FLAG = 267,
-     NUMBER = 268,
-     WORD = 269,
-     SEMICOLON = 270,
-     OPEN_PAREN = 271,
-     CLOSE_PAREN = 272,
-     OPEN_CARAT = 273,
-     CLOSE_CARAT = 274,
-     PIPE = 275,
-     QUOTE = 276,
-     BACKSLASH = 277,
-     AMPERSAND = 278,
-     LESSTHAN = 279,
-     GREATERTHAN = 280,
-     DOUBLEQUOTE = 281,
-     HOME_AND_PATH = 282,
-     HOME = 283,
-     ROOT = 284,
-     DOT_DOT = 285
+     WORD = 268,
+     NUMBER = 269,
+     FILENAME = 270,
+     SEMICOLON = 271,
+     OPEN_PAREN = 272,
+     CLOSE_PAREN = 273,
+     OPEN_CARAT = 274,
+     CLOSE_CARAT = 275,
+     PIPE = 276,
+     QUOTE = 277,
+     BACKSLASH = 278,
+     AMPERSAND = 279,
+     LESSTHAN = 280,
+     GREATERTHAN = 281,
+     DOUBLEQUOTE = 282,
+     HOME_AND_PATH = 283,
+     HOME = 284,
+     ROOT = 285,
+     DOT_DOT = 286,
+     WORD_THAT_START_WITH_TILDA = 287
    };
 #endif
 /* Tokens.  */
@@ -87,24 +89,26 @@ extern int yydebug;
 #define UNALIAS 265
 #define BYE 266
 #define FLAG 267
-#define NUMBER 268
-#define WORD 269
-#define SEMICOLON 270
-#define OPEN_PAREN 271
-#define CLOSE_PAREN 272
-#define OPEN_CARAT 273
-#define CLOSE_CARAT 274
-#define PIPE 275
-#define QUOTE 276
-#define BACKSLASH 277
-#define AMPERSAND 278
-#define LESSTHAN 279
-#define GREATERTHAN 280
-#define DOUBLEQUOTE 281
-#define HOME_AND_PATH 282
-#define HOME 283
-#define ROOT 284
-#define DOT_DOT 285
+#define WORD 268
+#define NUMBER 269
+#define FILENAME 270
+#define SEMICOLON 271
+#define OPEN_PAREN 272
+#define CLOSE_PAREN 273
+#define OPEN_CARAT 274
+#define CLOSE_CARAT 275
+#define PIPE 276
+#define QUOTE 277
+#define BACKSLASH 278
+#define AMPERSAND 279
+#define LESSTHAN 280
+#define GREATERTHAN 281
+#define DOUBLEQUOTE 282
+#define HOME_AND_PATH 283
+#define HOME 284
+#define ROOT 285
+#define DOT_DOT 286
+#define WORD_THAT_START_WITH_TILDA 287
 
 
 
@@ -112,14 +116,14 @@ extern int yydebug;
 typedef union YYSTYPE
 {
 /* Line 2058 of yacc.c  */
-#line 27 "unix.y"
+#line 28 "unix.y"
 
         int number;
         char* string;
 
 
 /* Line 2058 of yacc.c  */
-#line 123 "y.tab.h"
+#line 127 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

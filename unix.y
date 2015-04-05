@@ -18,10 +18,11 @@ int yywrap(){
 }
 
 %}
-%token SETENV PRINTENV UNSETENV CD LS EOLN ALIAS UNALIAS BYE FLAG
-%token NUMBER WORD SEMICOLON OPEN_PAREN CLOSE_PAREN OPEN_CARAT CLOSE_CARAT PIPE QUOTE BACKSLASH AMPERSAND
+%token SETENV PRINTENV UNSETENV CD LS EOLN ALIAS UNALIAS BYE FLAG WORD
+%token NUMBER FILENAME SEMICOLON OPEN_PAREN CLOSE_PAREN OPEN_CARAT CLOSE_CARAT PIPE QUOTE BACKSLASH AMPERSAND
 %token BACKSLASH LESSTHAN GREATERTHAN PIPE DOUBLEQUOTE AMPERSAND
 %token HOME_AND_PATH HOME ROOT DOT_DOT
+%token WORD_THAT_START_WITH_TILDA
 
 %union
 {
@@ -29,14 +30,17 @@ int yywrap(){
         char* string;
 }
 %token <number> NUMBER
+%token <string> FILENAME
 %token <string> WORD
+%token <string> WORD_THAT_START_WITH_TILDA
+
 %%
 
 commands: /* empty */
      | commands command{printf("\n%s","$ ");};
 
 command:
-    setenv_case|printenv_case|unsetenv_case|cd_case|ls_case|EOLN_case|alias_case|unalias_case|bye_case|number_case|word_case|metach_case;
+    setenv_case|printenv_case|unsetenv_case|cd_case|ls_case|EOLN_case|alias_case|unalias_case|bye_case|number_case|filename_case|word_that_start_with_tilda_case|metach_case;
 
 setenv_case:
     SETENV {printf("\t setenv !!\n");};
@@ -46,6 +50,11 @@ printenv_case:
 
 unsetenv_case:
     UNSETENV {printf("\t unsetenv !!\n");};
+
+word_that_start_with_tilda_case:
+     WORD_THAT_START_WITH_TILDA{
+        char* s = $1;
+        printf("%s\n", s);};
 
 cd_case:
 
@@ -67,22 +76,34 @@ cd_case:
             chdir("/");
     }
 
-    |CD HOME_AND_PATH WORD EOLN{
-        builtin = 1;
-        char* s = $3;
-        if(chdir(s) == -1){
-                    printf("%s: ", s);
-                    printf(" not a directory");
-        }
-        else{
-            printf("\tDirectory changed to %s\n", s);
+    |CD WORD_THAT_START_WITH_TILDA EOLN{
+
+            builtin = 1;
+            char temp[20];
+            char* s = $2;
+            char* current = getenv("PWD"); // saving the current directory
+            int index;
+            int k = 0;
+            for(index = 2; index <= strlen(s)-1; index++)
+            {
+                temp[k] = s[index];
+                //printf("%c ", temp[k]);
+                k = k + 1;
+            }
             chdir(getenv("HOME"));
-            chdir(s);
+            if(chdir(temp) == -1){
+                        printf("\t%s: ", temp);
+                        printf(" not a directory");
+                        chdir(current);
+
+            }
+            else{
+                printf("\tDirectory changed to home and then to %s\n", temp);
+                free($2);
+            }
         }
 
-    }
-
-    |CD HOME WORD EOLN{
+    /*|CD HOME FILENAME EOLN{
                 builtin = 1;
                 char* s = $3;
                 if(chdir(s) == -1){
@@ -94,9 +115,10 @@ cd_case:
                     chdir(getenv("HOME"));
                     chdir(s);
                  }
-     }
+     }*/
 
-    |CD WORD EOLN{
+    |CD FILENAME EOLN{
+
         builtin = 1;
         char* s = $2;
         if(chdir(s) == -1){
@@ -129,33 +151,18 @@ ls_case:
     		else
     		    printf("not valid !");
     }
-    | LS WORD EOLN{
-            builtin = 0;
-    		DIR *dir;
-    		dir = opendir(".");
-    		struct dirent *dp;
-    		const char* input = $2;
-    		int len = strlen($2);
-    		int k;
-    		char* output;
-    		if(dir) {
-    			while ((dp = readdir(dir)) != NULL) {
-    				k = 1;
-    				output = dp->d_name;
-    				int i;
-    				for (i = 0; i < len; i++) {
-    					if (input[i] != output[i]) {
-    						k = 0;
-    						break;
-    					}
-    				}
-    				if (k == 1)
-    					printf("%s\n", dp->d_name);
-
-    			}
-    			closedir(dir);
-    		}
-    		else
+    | LS FILENAME EOLN{
+                        builtin = 0;
+                        DIR *dir;
+                		dir = opendir($2);
+                		struct dirent *dp;
+                		if(dir) {
+                			while ((dp = readdir(dir)) != NULL) {
+                				printf("%s\n", dp->d_name);
+                			}
+                			closedir(dir);
+                		}
+                		else
                 		    printf("not valid !");
     	}
     	;
@@ -171,6 +178,9 @@ bye_case:
 
 number_case:
     NUMBER {printf("\t%d\n", yylval);};
+
+filename_case:
+    FILENAME {printf("\t%s\n", yylval);};
 
 word_case:
     WORD {printf("\t%s\n", yylval);};

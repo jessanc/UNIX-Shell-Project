@@ -1,30 +1,34 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <dirent.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <limits.h>
+#include <sys/file.h>
 #include "y.tab.h"
 #include "shell.h"
 
 void shell_init();
 
-void prompt(){
-	printf("%s\n$ " , getenv("PWD"));
-	//printf("\n%s","$ ");
-	return;
-}
+//void prompt(){
+//	//printf("%s\n$ " , getenv("PWD"));
+//	printf("\n%s","$ ");
+//	return;
+//}
 
 int main(){
     printf("\tWelcome to UNIX SHELL\n\n$ ");
 
         shell_init();
-    	While (1) {
-    		printPrompt();
-    		String CMD;
-    		Switch (CMD = getCommand()) {
-    		Case: BYE		exit();
-    		Case: ERRORS 	recover_from_errors();
-    		Case: OK 		processCommand();
-    		}
+    	while (1) {
+    	switch (getCommand()) {
+    		case 1:
+    		    processCommand();
+    		};
     	}
+
 }
 void shell_init(){
     // init all variables.
@@ -39,12 +43,11 @@ void shell_init(){
 }
 int getCommand()
 {
-	init_scanner-and_parser();
+	//init_scanner-and_parser();
 	if (yyparse())
-	return 1;
-		understand_errors();
+	    return(0);
 	else
-		Return (OK);
+		return(1);
 }
 void recover_from_errors()
 {
@@ -56,49 +59,65 @@ void recover_from_errors()
 }
 void processCommand()
 {
-	if (builtin)
-		do_it(builtin);
+	if (command)
+		do_it();
 	else
 		execute_it();
 }
 void do_it()
 {
 	switch (command) {
-        case :    //gohome();
-        case CD Path:	//chdir(path);
-        case ALIAS:
-        case UNALIAS:
-        case SETENV:
-        case PRINTENV:
-    //....
-	}
+	    case 1: //setenv
+	        break;
+        case 2: //printenv
+            break;
+        case 3: //unsetenv
+            break;
+        case 4: //cd
+            break;
+        case 5: // cd dir
+            break;
+        case 6: //alias
+            break;
+        case 7: //unalias
+            break;
+        case 8: //ls
+            break;
+        case 9: // ls directory
+            break;
+        case 10: // bye
+                printf("\t bye!! \n");
+                exit(0);
+                break;
+        };
+
 }
 void Execute_it()
 {
-	// Handle  command execution, pipelining, i/o redirection, and background processing.
-	//Utilize a command table whose components are plugged in during parsing by yacc.
-
-/*
-	 * Check Command Accessability and Executability
-	*/
-	if( ! Executable() ) {
-		//use access() system call with X_OK
-		nuterr("Command not Found");
-		return;
-	}
-
-	/*
-	 * Check io file existance in case of io-redirection.
-	*/
-	if( check_in_file()==SYSERR ) {
-		nuterr("Cann't read from : %s",srcf);
-		return;
-	}
-	if( check_out_file()==SYSERR ) {
-		nuterr("Cann't write to : %s",distf);
-		return;
-	}
-
-	//Build up the pipeline (create and set up pipe end points (using pipe, dup)
-	//Process background
+//	// Handle  command execution, pipelining, i/o redirection, and background processing.
+//	//Utilize a command table whose components are plugged in during parsing by yacc.
+//
+///*
+//	 * Check Command Accessability and Executability
+//	*/
+//	if( ! Executable() ) {
+//		//use access() system call with X_OK
+//		nuterr("Command not Found");
+//		return;
+//	}
+//
+//	/*
+//	 * Check io file existance in case of io-redirection.
+//	*/
+//	if( check_in_file()== SYSERR ) {
+//		nuterr("Cann't read from : %s",srcf);
+//		return;
+//	}
+//	if( check_out_file()== SYSERR ) {
+//		nuterr("Cann't write to : %s",distf);
+//		return;
+//	}
+//
+//	//Build up the pipeline (create and set up pipe end points (using pipe, dup)
+//	//Process background
 }

@@ -27,7 +27,9 @@ ls          return LS;
 \n          return EOLN;
 [ \t]+      /*ignore whitespace */;
 [0-9]+      {yylval.number = atoi(yytext); return NUMBER;}
-[a-zA-Z0-9\-()\*\.\/~?${}_]+    { yylval.string = strdup(yytext); return WORD; } // filename
+[a-zA-Z0-9\-()\*\.\/?${}_]+    { yylval.string = strdup(yytext); return FILENAME; } // filename
+[a-zA-Z][a-zA-Z0-9]*    { yylval.string = strdup(yytext); return WORD; }
+[~][/][a-zA-Z0-9\-()\*\._\/]+    { yylval.string = strdup(yytext); return WORD_THAT_START_WITH_TILDA; }
 
 .           { yyerror("unrecongnized character");}
 

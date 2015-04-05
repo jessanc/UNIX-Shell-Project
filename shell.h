@@ -4,4 +4,4 @@
 
  int builtin;  //Determines if command is built in or not
 
- char* command;
+ int command = -1;
