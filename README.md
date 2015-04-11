@@ -51,4 +51,15 @@ Examples of Commands
     setenv LIB ~/bin
     nm ${LIB}/libxc.a
     
+    Working Commands:
+    cd (all cases)
+    ls (all cases)
+    setenv
+    printenv
+    unsetenv
+    alias
+    unalias
+    bye
     
+    Commands not working:
+    wc
