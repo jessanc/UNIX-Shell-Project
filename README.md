@@ -1,4 +1,7 @@
 # UNIX-Shell-Project
+
+Jessan Cherian
+Sangeetha Matchanickal
     
     Working Commands:
         cd (all cases)
